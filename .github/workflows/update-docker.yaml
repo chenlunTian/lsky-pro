@@ -20,7 +20,8 @@ jobs:
         run: |
           sudo -E timedatectl set-timezone "$TZ"
           sudo mkdir -p /workdir/lsky
-          sudo chown $USER:$GROUPS /workdir
+          sudo chmod -R 777 /workdir/lsky
+          sudo chown $USER:$GROUPS /workdir/lsky
 
       - name: Checkout
         uses: actions/checkout@v2
