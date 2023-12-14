@@ -19,17 +19,15 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         run: |
           sudo -E timedatectl set-timezone "$TZ"
-          sudo mkdir -p /workdir
+          sudo mkdir -p /workdir/lsky
           sudo chown $USER:$GROUPS /workdir
 
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Download and Unzip Upstream Source Code
-        working-directory: /workdir
+        working-directory: /workdir/lsky
         run: |
-          sudo mkdir -p /lsky
-          cd lsky
           curl -OL https://github.com/lsky-org/lsky-pro/archive/refs/heads/master.zip
           unzip *.zip
           mv ./lsky-pro-master/* ./
