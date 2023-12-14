@@ -28,14 +28,14 @@ jobs:
       - name: Download and Unzip Upstream Source Code
         working-directory: /workdir
         run: |
-          sudo mkdir -p /lsky-pro
-          cd lsky-pro
+          sudo mkdir -p /lsky
+          cd lsky
           curl -OL https://github.com/lsky-org/lsky-pro/archive/refs/heads/master.zip
           unzip *.zip
           mv ./lsky-pro-master/* ./
           mv ./lsky-pro-master/.env.example ./
           rm -rf master.zip lsky-pro-master
-          ln -sf /workdir/lsky-pro $GITHUB_WORKSPACE/lsky-pro
+          ln -sf /workdir/lsky $GITHUB_WORKSPACE/lsky-pro
          
       - name: Replace ImageService.php
         run: |
