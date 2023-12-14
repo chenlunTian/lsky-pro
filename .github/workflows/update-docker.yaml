@@ -1,4 +1,4 @@
-name: Build and push Docker images
+name: LSKY-PRO
 
 on:
   workflow_dispatch:
