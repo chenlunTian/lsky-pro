@@ -19,22 +19,22 @@ jobs:
           DEBIAN_FRONTEND: noninteractive
         run: |
           sudo -E timedatectl set-timezone "$TZ"
-          sudo mkdir -p /workdir/lsky
-          sudo chmod -R 777 /workdir/lsky
-          sudo chown $USER:$GROUPS /workdir/lsky
+          sudo mkdir -p /workdir/lsky-pro
+          sudo chmod -R 777 /workdir/lsky-pro
+          sudo chown $USER:$GROUPS /workdir/lsky-pro
 
       - name: Checkout
         uses: actions/checkout@v2
 
       - name: Download and Unzip Upstream Source Code
-        working-directory: /workdir/lsky
+        working-directory: /workdir/lsky-pro
         run: |
           curl -OL https://github.com/lsky-org/lsky-pro/archive/refs/heads/master.zip
           unzip *.zip
           mv ./lsky-pro-master/* ./
           mv ./lsky-pro-master/.env.example ./
           rm -rf master.zip lsky-pro-master
-          ln -sf /workdir/lsky $GITHUB_WORKSPACE/lsky-pro
+          ln -sf /workdir/lsky-pro $GITHUB_WORKSPACE/lsky-pro
          
       - name: Replace ImageService.php
         run: |
