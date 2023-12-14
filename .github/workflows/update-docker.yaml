@@ -63,5 +63,5 @@ jobs:
       
       - name: Build and Push
         run: |
-          docker build -t CL/lskypro-docker:latest .
-          docker push CL/lskypro-docker:latest
+          docker build -t clttt/lskypro-docker:latest .
+          docker push clttt/lskypro-docker:latest
