@@ -28,7 +28,7 @@ jobs:
       - name: Download and Unzip Upstream Source Code
         working-directory: /workdir
         run: |
-          curl -o /lsky-pro https://github.com/lsky-org/lsky-pro/archive/refs/heads/master.zip
+          curl  https://github.com/lsky-org/lsky-pro/archive/refs/heads/master.zip --output  /lsky-pro/master.zip
           cd lsky-pro
           unzip *.zip
           mv ./lsky-pro-master/* ./
