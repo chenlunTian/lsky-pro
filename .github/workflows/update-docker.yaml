@@ -30,10 +30,11 @@ jobs:
         run: |
           df -hT $PWD
           curl -o lsky-pro https://github.com/lsky-org/lsky-pro/archive/refs/heads/master.zip
-          unzip ./lsky-pro/*.zip
-          mv ./lsky-pro/lsky-pro-master/* ./lsky-pro/
-          mv ./lsky-pro/lsky-pro-master/.env.example ./lsky-pro/
-          rm -rf master.zip lsky-pro/lsky-pro-master
+          cd lsky-pro
+          unzip *.zip
+          mv ./lsky-pro-master/* ./
+          mv ./lsky-pro-master/.env.example ./
+          rm -rf master.zip lsky-pro-master
           ln -sf /workdir/lsky-pro $GITHUB_WORKSPACE/lsky-pro
          
       - name: Replace ImageService.php
